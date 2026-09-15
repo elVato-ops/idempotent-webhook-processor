@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: idempotent-webhook-processor
+
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:webhooks}
+    username: ${DB_USER:webhooks}
+    password: ${DB_PASSWORD:webhooks}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+
+server:
+  port: ${SERVER_PORT:8080}
